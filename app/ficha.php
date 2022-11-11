@@ -8,13 +8,15 @@ interface FichaInter{
 }
 
 class Ficha implements FichaInter{
-    protected string $color;
+    protected String $color;
 
-    public function __construct(string $color){
+    public function __construct(String $color){
         if (!($color == 'blanco' || $color == 'rojo' || $color == 'azul')) {
 			throw new \Exception("El color de la ficha es erroneo\n");
 			return;
 		}
+
+        $this->color = $color;
     }
 
     public function fichaColor(){

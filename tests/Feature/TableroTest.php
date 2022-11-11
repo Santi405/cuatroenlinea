@@ -18,7 +18,7 @@ $FichaAzul = new Ficha('azul');
 $tablero->TirarFicha($FichaRoja, 3);
 $tablero->TirarFicha($FichaAzul, 3);
 $tablero->TirarFicha($FichaRoja, 3);
-$tablero->TirarFicha($FichaAzul, 5);
+$tablero->TirarFicha($FichaAzul, 4);
 $tablero->TirarFicha($FichaRoja, 3);
 $tablero->TirarFicha($FichaAzul, 4);
 $tablero->TirarFicha($FichaRoja, 3);
@@ -29,11 +29,11 @@ $blueAmount = 0;
 $whiteAmount = 0;
 
 // Cuento fichas rojas y azules en el tablero
-for ($x=0; $x<$tablero->getHeight(); $x++) {
-    for ($y=0; $y<$tablero->getWidth(); $y++) {
-    if(($tablero->ATablero[$x][$y]->ConseguirColor()) == 'azul'){
+for ($x = 0; $x < $tablero->getHeight(); $x++) {
+    for ($y = 0; $y < $tablero->getWidth(); $y++) {
+    if($tablero->cuadricul[$x][$y]->fichaColor() == 'azul'){
     $blueAmount++;
-    }else if(($tablero->ATablero[$x][$y]->ConseguirColor()) == 'rojo'){
+    }else if(($tablero->cuadricul[$x][$y]->fichaColor()) == 'rojo'){
             $redAmount++;
     }else $whiteAmount++;
     }

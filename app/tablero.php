@@ -13,7 +13,7 @@ interface TableInter{
 }
 
 class Tablero implements TableInter{
-    protected array $cuadricul;
+    public array $cuadricul;
     protected int $anchura;
     protected int $altura;
      
@@ -39,14 +39,18 @@ class Tablero implements TableInter{
     }
 
     public function TableroLimpio(){
-        for($i = 0; $i < $this->altura; $i++){
-            for($j = 0; $j < $this->anchura; $j++){
+        for($i = 0; $i <= $this->altura; $i++){
+            for($j = 0; $j <= $this->anchura; $j++){
                 $this->cuadricul[$j][$i] = new Ficha("blanco");
             }
         }
     }
 
     public function LecturaPos(int $coordX, int $coordY){
+        if($coordX > $this->anchura || $coordY > $this->altura){
+            throw new Exception("Dimenisones erroneas, valor minimo = 4");
+            return;
+        }
         return (($this->cuadricul[$coordX][$coordY]->fichaColor() == 'rojo') || ($this->cuadricul[$coordX][$coordY]->fichaColor() == 'azul'));
     }
 
@@ -63,6 +67,7 @@ class Tablero implements TableInter{
                 $this->cuadricul[$coordX][$j] = $ficha;
                 break;
             }
+            $j++;
         }
     }
 
