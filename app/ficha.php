@@ -18,7 +18,7 @@ class Ficha implements FichaInter{
     }
 
     public function fichaColor(){
-        return $this->$color;
+        return $this->color;
     }
 }
 ?>
