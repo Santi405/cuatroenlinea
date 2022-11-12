@@ -2,6 +2,7 @@
     namespace App;
 
 use Exception;
+use InvalidArgumentException;
 
 interface TableInter{
     public function TirarFicha(Ficha $ficha, int $coordX);
@@ -56,7 +57,7 @@ class Tablero implements TableInter{
 
     public function TirarFicha(Ficha $ficha, int $coordX){
         if($coordX < 0 || $coordX > $this->anchura-1){
-            throw new Exception("La posición de la ficha está fuera del area del tablero");
+            throw new InvalidArgumentException("La posición de la ficha está fuera del area del tablero");
             return;
         }
 

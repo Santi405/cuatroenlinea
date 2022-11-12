@@ -4,10 +4,12 @@ namespace App;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
+use InvalidArgumentException;
 
-class TableroTest extends TestCase{
+class TableroFailTest extends TestCase{
 /** @test */
 public function TestearTablero(){
+$this->expectException(InvalidArgumentException::class);
 
 // Creo un tablero de (x,y) dimensiones y dos variables con los colores de la ficha
 $tablero = new Tablero(5,5);
@@ -39,7 +41,7 @@ for ($x = 0; $x < $tablero->getHeight(); $x++) {
     }
 }
 
-$this->assertTrue(!($whiteAmount == (25-($redAmount+$blueAmount))));
+
 
 }
 }
